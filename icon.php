@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include('header.php'); ?> <!--TODO cannot change user icon-->
     <h1>Avater Generator</h1><br>
     <div class="panel">
 

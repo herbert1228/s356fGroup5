@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include('header.php'); ?> <!--TODO cannot change user icon-->
     <h1>Avater Generator</h1><br>
     <div class="panel">
         <h5>Choose one for your avater!</h5>
@@ -16,7 +16,6 @@
             $count = 0;
             foreach (glob('./images/icon-people/*.*') as $filename) {
                 $count++;
-                //echo $filename;
 
                 echo '<td>';
                 echo '<div class="radio"><label><input type="radio" name="icon_url" value="' . $filename . '"><img src="' . $filename . '" width=180 height=180></label></div>';
@@ -29,11 +28,11 @@
 
             echo '<br>';
             echo 'Reference: https://www.flaticon.com/packs/avatars-20
-		<br>Published by Freepik
-		<br>License: Flaticon Basic License ';
+                <br>Published by Freepik
+                <br>License: Flaticon Basic License ';
             echo '<br>
-<input type="submit" value="Submit" class="btn">
-</form>';
+                <input type="submit" value="Submit" class="btn">
+            </form>';
 
         } else {
 

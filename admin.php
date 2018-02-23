@@ -55,6 +55,9 @@
 
             <ul class="nav nav-tabs">
                 <?php
+                if (!isset($_GET['action'])) //TODO any better way?
+                    header("Location: ./admin.php?action");
+
                 echo ($_GET['action'] == '') ?
                     '<li class="active"><a href="./admin.php?action">Statistics</a></li>' :
                     '<li class="none"><a href="./admin.php?action">Statistics</a></li>';
@@ -115,8 +118,8 @@
 
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 $action = $_GET["action"];
-                $id = $_GET["id"];
-
+                if (isset($_GET['id']))
+                    $id = $_GET["id"];
 
                 if ($action == "") {
 

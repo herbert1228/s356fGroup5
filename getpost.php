@@ -105,7 +105,7 @@ if (!empty($_POST["addflist"])) {
 
             <br>
             <div class="panel panel-default">
-                <div class="panel-body">
+                <div class="panel-body">  <!--TODO if post_id not found, redirect to another pages-->
                     <table class="table table-bordered">
                         <thead>
                         <?php echo "<h2>" . $row["title"] . "</h2><br>";
@@ -135,7 +135,7 @@ if (!empty($_POST["addflist"])) {
                         //get user permission for different display
                         if ($login) {
                             $user_id = $_SESSION['user_id'];
-                            $get_userpermit = "SELECT type_id FROM user WHERE user_id = $user_id  ";
+                            $get_userpermit = "SELECT permission FROM user_type ut, user u WHERE u.user_id = $user_id AND ut.type_id = u .type_id"; //TODO please check this sql, not sure is it correct
                             $stat = mysqli_query($con, $get_userpermit);
                             $rowst = mysqli_fetch_assoc($stat);
                             $userpermit = $rowst['permission'];
@@ -208,7 +208,11 @@ if (!empty($_POST["addflist"])) {
                         <form action="./reply.php" method=post>
                             Reply: <textarea name="reply" rows="10" cols="80" class="form-control"></textarea><br>
                             <?php
-                            $pid = $_GET["postid"];
+                            if (!isset($_GET["postid"])) {
+                                $pid = $row['post_id'];
+                            } else {
+                                $pid = $_GET["postid"];
+                            }
                             echo '<input type="hidden" name="postid" value="' . $pid . '"><br>';
                             ?>
                             <br>

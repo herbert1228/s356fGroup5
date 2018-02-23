@@ -336,7 +336,7 @@ INSERT INTO `user_type` (`type_id`, `type`, `permission`) VALUES
 (3, 'Super Admin', 255),
 (4, 'Blocked User', 0),
 (5, 'God', 256),
-(6,  'Guest', 0);
+(6,  'Guest', 0); --TODO is it necessary to add this user type
 
 --
 -- 已匯出資料表的索引
